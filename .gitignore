@@ -1,0 +1,9 @@
+cp*/
+*.pth
+*.json
+*.png
+*.sh
+*.bmp
+checkpoints*/
+*.zip
+*.pyc
