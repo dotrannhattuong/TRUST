@@ -7,3 +7,5 @@ cp*/
 checkpoints*/
 *.zip
 *.pyc
+*.user
+*.xlsx

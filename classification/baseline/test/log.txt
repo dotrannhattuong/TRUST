@@ -1,0 +1,65 @@
+[32mDataset Information: Breast-BUSI to Breast-UCLM[0m
+[33mSource: ../dataset/Breast-BUSI/train Target: ../dataset/Breast-UCLM/train[0m
+[34mSource dataset length: 452, Target dataset length: 184[0m
+[31mLoading VGG model...[0m
+[31mLoading Classification model ../downstream/classification/checkpoints/vit_Breast-UCLM/best.pth[0m
+Train Step: [0/20000] Loss: 158.6467 - Content: 26.2200 - Style: 132.4267
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+3
+3
+[35mTesting at ./test/results/results_0.001k[0m
+[31mBest AUC: 46.40%[0m
+[31mBest accuracy: 66.67%[0m
+Validation accuracy: 66.67% 	 AUC: 0.46
+[31mBest accuracy at 1: 66.67% 	 Best AUC at 1: 0.46[0m
+8
+8
+8
+8
