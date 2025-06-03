@@ -152,8 +152,8 @@ class TransformerDecoderLayer(nn.Module):
                  dropout=0.1, activation="relu"):
         super().__init__()
         # d_model embedding dim
-        self.self_attn = nn.MultiheadAttention(d_model, nhead, dropout=dropout)
-        self.multihead_attn = nn.MultiheadAttention(d_model, nhead, dropout=dropout)
+        self.self_attn_1 = nn.MultiheadAttention(d_model, nhead, dropout=dropout)
+        self.self_attn_2 = nn.MultiheadAttention(d_model, nhead, dropout=dropout)
         # Implementation of Feedforward model
         self.linear1 = nn.Linear(d_model, dim_feedforward)
         self.dropout = nn.Dropout(dropout)
@@ -177,15 +177,15 @@ class TransformerDecoderLayer(nn.Module):
         q = self.with_pos_embed(tgt, pos)
         k = v = memory
  
-        tgt2 = self.self_attn(q, k, v)[0]
-
+        tgt2 = self.self_attn_1(q, k, v)[0]
         tgt = tgt + self.dropout1(tgt2)
         tgt = self.norm1(tgt)
-        tgt2 = self.multihead_attn(query=self.with_pos_embed(tgt, pos),
-                                   key=self.with_pos_embed(memory, pos),
-                                   value=memory)[0]
+
+        tgt2 = self.self_attn_2(query=self.with_pos_embed(tgt, pos),
+                                key=k, value=v)[0]
         tgt = tgt + self.dropout2(tgt2)
         tgt = self.norm2(tgt)
+
         tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt))))
         tgt = tgt + self.dropout3(tgt2)
         tgt = self.norm3(tgt)
